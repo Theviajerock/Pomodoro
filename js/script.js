@@ -325,3 +325,55 @@ function loadLiquidFillGauge(elementId, value, config) {
             return (Math.random()*100).toFixed(1);
         }
     }
+
+
+
+function countdown( elementName, minutes, seconds )
+{
+    var element, endTime, hours, mins, msLeft, time;
+
+    function twoDigits( n )
+    {
+        return (n <= 9 ? "0" + n : n);
+    }
+
+    function updateTimer()
+    {
+        msLeft = endTime - (+new Date);
+        if ( msLeft < 1000 ) {
+            element.innerHTML = "countdown's over!";
+        } else {
+            time = new Date( msLeft );
+            hours = time.getUTCHours();
+            mins = time.getUTCMinutes();
+            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+        }
+    }
+
+    element = document.getElementById( elementName );
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+}
+
+countdown( "countdown", 1, 5 );
+
+
+
+
+
+
+function calcularTiempo(){
+    const minutos = 30;
+    const segundos = minutos * 60;
+    var minutosReducir;
+    var segundosReducir;
+    
+    if ( minutosReducir == "undefined"){
+        minutosReducir = minutos;
+        segundosReducir = minutosReducir * 60;
+
+    }
+
+
+}
