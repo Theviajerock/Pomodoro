@@ -1,17 +1,21 @@
-const constMinutos = 30;
-const constSegundos = constMinutos * 60;
-var minutosReducir = constMinutos;
-var segundosReducir = minutosReducir * 60;
+
 
 
 var app=angular.module('pomodoroApp',[]);
 app.controller('pomodoroCtrl',function($scope, $interval){
 
     $scope.calcularTiempo = function(){
-
-      
+	var constMinutos = 30;
+	var constSegundos = constMinutos * 60;
+	var minutosReducir = constMinutos;
+	var segundosReducir = minutosReducir * 60;
+ 
+	  
+	  
 
       $interval(function(){
+		  
+        
         $scope.segundosReducir = segundosReducir - 1
         segundosReducir =  $scope.segundosReducir
         $scope.minutosReducir = Math.floor(segundosReducir/60);
